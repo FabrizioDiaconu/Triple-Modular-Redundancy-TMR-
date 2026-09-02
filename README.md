@@ -19,8 +19,8 @@ This structure mitigates hardware vulnerabilities preventing Single Points of Fa
 
 The prototype I built is made of three mirrored channels, each one with its own components. Here follows the functional block diagram I made of the framework: 
 
-    figure 1 
-
+![Figure 1](Block_Diagram.png)
+figure 1
  
 
 **2.1 VOLTAGE and GROUND CHARACTERISTICS**  
