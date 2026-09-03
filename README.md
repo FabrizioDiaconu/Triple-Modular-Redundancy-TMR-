@@ -79,7 +79,7 @@ The voting logic handles three different scenarios, depending on how many sensor
 
 **4. OUTPUTS** 
 
-I placed all the outputs at the very end of the code. This way, if I ever need to change something, I don't have to look through the whole program to find where the outputs are handled. 
+I placed all the outputs at the very end of the code. This way, if I ever need to change something, I don't have to go through the whole program to find where the outputs are handled. 
 
 **5. FUTURE ADJUSTMENTS** 
 
