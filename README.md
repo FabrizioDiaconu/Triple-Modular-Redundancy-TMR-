@@ -13,7 +13,7 @@ Triple Modular Redundancy algorithm — Median-based voting logic.
 
 In almost every safety-critical framework, fault tolerance is the basis of a successful mission and vehicle integrity. This paper presents the design—hardware and software—of an End-to-End TMR control system. 
 
-This structure mitigates hardware vulnerabilities by preventing Single Points of Failure (SPoF) through replicating data acquisition, processing, and actuation. I made this possible by using three identical parallel nodes. Each one has the following main components—MPU6050 accelerometer sensor; ESP32 microcontroller; MCP2515 CAN Bus module; Servomotor. The nodes communicate with each other through the shared CAN bus network; the whole system executes a real-time majority voting algorithm to command three different servomotors. 
+This structure mitigates hardware vulnerabilities by preventing Single Points of Failure (SPoF) through replicating data acquisition, processing, and actuation. I made this possible by using three identical parallel nodes. Each one has the following main components—MPU6050 accelerometer sensor; ESP32 microcontroller; MCP2515 CAN bus module; Servomotor. The nodes communicate with each other through the shared CAN bus network; the whole system executes a real-time majority voting algorithm to command three different servomotors. 
 
 **2. HARDWARE ARCHITECTURE**
 
