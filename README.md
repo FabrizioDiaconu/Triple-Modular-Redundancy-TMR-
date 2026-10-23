@@ -1,5 +1,5 @@
 # Triple-Modular-Redundancy-TMR-
-Triple Modular Redundancy algorithm - Median based voting logic.
+Triple Modular Redundancy algorithm — Median-based voting logic.
 
 *Design and Implementation of an End-to-End Triple Modular Redundancy (TMR) Control System for Safety-Critical Actuators* 
 
@@ -25,13 +25,13 @@ Figure 1
 
 **2.1 VOLTAGE and GROUND CHARACTERISTICS**  
 
-As shown in the block diagram above, there are three different main power sources. This had to be done for specific reasons—the actuators generate high current spikes that create electromagnetic interference along the power rails, potentially disrupting the communication lines of the CAN Modules; furthermore, these spikes could exceed the maximum tolerance of the ESP32s microcontrollers' pins, leading to hardware degradation. 
+As shown in the block diagram above, there are three different main power sources. This had to be done for specific reasons—the actuators generate high current spikes that create electromagnetic interference along the power rails, potentially disrupting the communication lines of the CAN modules; furthermore, these spikes could exceed the maximum tolerance of the ESP32 microcontrollers' pins, leading to hardware degradation. 
 
-Also, there is a shared ground reference; it was the best choice to avoid interaction issues between components which work at different voltages (such as the MPU6050 that requires a 3.3 V). Moreover, if hardware units are powered by different supplies, and don’t share a common ground reference, they cannot establish a baseline voltage for signaling and fail to exchange data; thus making the whole prototype inoperative. 
+Also, there is a shared ground reference; it was the best choice to avoid interaction issues between components that work at different voltages (such as the MPU6050 that requires a 3.3 V supply). Moreover, if hardware units are powered by different supplies and don’t share a common ground reference, they cannot establish a baseline voltage for signaling and fail to exchange data; thus making the whole prototype inoperative. 
 
 **2.2 I2C BUS and MPU6050 SENSOR** 
 
-In figure 1, a bidirectional arrow labeled “I2C” represents the specific communication bus that allows the ESP32 and the MPU6050 sensor to interact. This bus consists of two lines: SDA (Serial Data) and SCL (Serial Clock). As shown, each microcontroller has its own dedicated I2C bus and sensor. The system was designed this way to ensure fault tolerance; having three completely independent sub-systems guarantees strict fault isolation in case one of them fails. 
+In Figure 1, a bidirectional arrow labeled “I2C” represents the specific communication bus that allows the ESP32 and the MPU6050 sensor to interact. This bus consists of two lines: SDA (Serial Data) and SCL (Serial Clock). As shown, each microcontroller has its own dedicated I2C bus and sensor. The system was designed this way to ensure fault tolerance; having three completely independent sub-systems guarantees strict fault isolation in case one of them fails. 
 
 You may ask why I have decided to choose the MPU6050. The answer is quite simple: it offers a 3-axis accelerometer and gyroscope. While currently only the accelerometer is used, I could implement the gyroscope in future advancements of the prototype to ensure even better angle correction. Furthermore, it is cost-efficient and reliable. Its integrated Digital Motion Processor reduces the ESP32’s computational workload, and finally its open-source libraries are thoroughly tested and documented. 
 
@@ -43,7 +43,7 @@ Now, let me introduce you to the communication network. I needed fast data excha
 
 **3. SOFTWARE LOGIC and MAJORITY VOTING**  
 
-**3.1 SYSTEM CONFIGURATION and FIRMWARE OPTIMISATION** 
+**3.1 SYSTEM CONFIGURATION and FIRMWARE OPTIMIZATION** 
 
 When looking at the code, one immediately notices a series of #define directives that systematically map the pins and all critical constants. This approach was a winning strategy, allowing me to maintain the same code across every microcontroller—making it truly redundant in every sense of the word, while also optimizing RAM usage. 
 
