@@ -423,7 +423,7 @@ void loop()
                     inclination = thirdCAN_data.readingValueTX;
                 }
                 // Calculating the servo angle which will stabilize the whole system
-                servoAngle = map((long)(inclination * 1000), -10000, 10000, 0, 180);
+                servoAngle = 180 - map((long)(inclination * 1000), -10000, 10000, 0, 180);
                 servoAngle = constrain(servoAngle, 0, 180);
             }
         }
